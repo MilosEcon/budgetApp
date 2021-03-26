@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Budget App</title>
+
+    <link rel="stylesheet" href="css/app.css">
+</head>
+
+<body>
+    <div class="main-container">
+
+        <header><span class="header__date"></span>
+        </header>
+
+        <section class="circle-result">
+            <svg width="400px" height="400px">
+                <circle r="140px" cx="200px" cy="200px" class="circle-result__circle circle-result__circle--inc-progres"></circle>
+                <circle r="110px" cx="200px" cy="200px" class="circle-result__circle circle-result__circle--exp-track"></circle>
+            </svg>
+            <div class="circle-result__outcome">
+                <div class="circle-result__currency">NOK</div>
+                <div class="relative"><span class="circle-result__sign"></span><span class="circle-result__number" id="circle-result__number">0</span></div>
+            </div>
+        </section>
+
+        <section class="add">
+            <div class="add__type" data-type="income">
+                <div class="add__sign add__sign--plus active--press">+</div>
+                <div class="add__sign add__sign--minus" id="add__minus">&ndash;</div>
+            </div>
+            <div>
+                <input type="text" class="add__desc" id="add__desc" name="add__desc" maxlength="40" placeholder="Category description">
+            </div>
+            <div>
+                <div class="add__num add__num--minus">&ndash;</div>
+                <input type="text" class="add__num add__num--val" id="add__num" name="add__num" maxlength="10">
+                <div class="add__num add__num--plus">+</div>
+            </div>
+            <div class="add__curr-wraper" data-curr="nok">
+                <div class="add__curr add__curr--nok active--press" id="add__nok">NOK</div>
+                <div class="add__curr add__curr--eu" id="add__eu">EURO <div class="add__curr--eu-tooltip">The amount in EURO will be automatically converted into NOK</div></div>
+            </div>
+            <div><button class="add__btn" id="add__btn">Add</button></div>
+        </section>
+
+        <section class="category">
+            <div class="category__content">
+                <div class="category__wrapper--inc">
+                    <div class="category__total">
+                        <h2 class="category__title">Income</h2>
+                        <div class="category__total__val" id="total-income">0</div>
+                    </div>
+                    <ul class="category__list category__list--inc">
+
+                    </ul>
+                </div>
+            </div>
+
+            <div class="category__content">
+                <div class="category__wrapper--exp">
+                    <div class="category__total">
+                        <h2 class="category__title">Expense</h2>
+                        <div class="category__total__val" id="total-expense">0</div>
+                    </div>
+                    <ul class="category__list category__list--exp">
+
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="charts">
+            <div class="charts__container">
+                <canvas id="chartIncome" width="400" height="300"></canvas>
+            </div>
+            <div class="charts__container">
+                <canvas id="chartExpense" width="400" height="300"></canvas>
+            </div>
+        </div>
+    </div>
+<script src="js/bundle.js"></script></body>
+
+</html>
